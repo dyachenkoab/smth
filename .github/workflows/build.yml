@@ -4,6 +4,17 @@ on:
   push:
     tags:
       - "*"
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: 'Choose where you want to publish the build'
+        required: true
+        default: AppTester
+        type: choice
+        options:
+          - GooglePlay
+          - AppTester
+          - Both
 
 jobs:
   release:
